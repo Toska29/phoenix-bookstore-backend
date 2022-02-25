@@ -1,4 +1,4 @@
-package africa.semicolon.phoenixbookstore.dtos;
+package africa.semicolon.phoenixbookstore.data.dto;
 
 import lombok.Data;
 

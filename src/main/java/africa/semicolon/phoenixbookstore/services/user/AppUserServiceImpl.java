@@ -4,7 +4,7 @@ import africa.semicolon.phoenixbookstore.data.dto.AppUserRequestDto;
 import africa.semicolon.phoenixbookstore.data.dto.AppUserResponseDto;
 import africa.semicolon.phoenixbookstore.data.models.AppUser;
 import africa.semicolon.phoenixbookstore.data.repositories.UserRepository;
-import africa.semicolon.phoenixbookstore.web.exceptions.BusinessLogicException;
+import africa.semicolon.phoenixbookstore.exceptions.PhoenixBookStoreException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +17,10 @@ public class AppUserServiceImpl implements AppUserService {
     UserRepository userRepository;
 
     @Override
-    public AppUserResponseDto createUser(AppUserRequestDto userRequestDto) throws BusinessLogicException {
+    public AppUserResponseDto createUser(AppUserRequestDto userRequestDto) throws PhoenixBookStoreException {
         Optional<AppUser> savedUser = userRepository.findByEmail(userRequestDto.getEmail());
         if (savedUser.isPresent()) {
-            throw new BusinessLogicException("User with email already exist");
+            throw new PhoenixBookStoreException("User with email already exist");
         }
         AppUser newUser = new AppUser();
         newUser.setEmail(userRequestDto.getEmail());
