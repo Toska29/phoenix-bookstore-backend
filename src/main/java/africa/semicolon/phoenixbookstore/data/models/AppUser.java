@@ -27,6 +27,7 @@ public class AppUser {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinColumn(nullable = false, name = "user_book")
     private List<Book> bookshelf;
 }
