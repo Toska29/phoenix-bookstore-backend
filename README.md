@@ -27,9 +27,8 @@ mvn -B package --file pom.xml
 👤 **muqtarmav**
 👤 **Toska29**
 👤 **djfemz**
-👤 **kindyluv**
-👤 **toska29**
-👤 **olatoye-daramola**
+👤 **Oludairo**
+
 
 
 
@@ -37,6 +36,7 @@ mvn -B package --file pom.xml
 
 * Github: [@toska29](https://github.com/toska29)
 * Github: [@muqtarmav](https://github.com/olatoye-daramola)
+* Github: [@Oludairo](https://github.com/Oludairo)
 
 ## Show your support
 
