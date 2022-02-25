@@ -2,9 +2,9 @@ package africa.semicolon.phoenixbookstore.controllers;
 
 import africa.semicolon.phoenixbookstore.data.models.Book;
 import africa.semicolon.phoenixbookstore.dtos.BookDto;
-import africa.semicolon.phoenixbookstore.exception.BookDoesNotExistException;
-import africa.semicolon.phoenixbookstore.exception.BookLogicException;
-import africa.semicolon.phoenixbookstore.services.BookService;
+import africa.semicolon.phoenixbookstore.exceptions.BookDoesNotExistException;
+import africa.semicolon.phoenixbookstore.exceptions.PhoenixBookStoreException;
+import africa.semicolon.phoenixbookstore.services.book.BookService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +38,7 @@ public class BookController {
         try {
             Book savedBook = bookService.addToFavoriteBooks(bookDto);
             return ResponseEntity.ok().body(savedBook);
-        } catch (BookLogicException | BookDoesNotExistException e) {
+        } catch (PhoenixBookStoreException | BookDoesNotExistException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

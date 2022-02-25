@@ -1,10 +1,10 @@
-package africa.semicolon.phoenixbookstore.services;
+package africa.semicolon.phoenixbookstore.services.book;
 
 import africa.semicolon.phoenixbookstore.data.models.Book;
 import africa.semicolon.phoenixbookstore.data.repositories.BookRepository;
 import africa.semicolon.phoenixbookstore.dtos.BookDto;
-import africa.semicolon.phoenixbookstore.exception.BookDoesNotExistException;
-import africa.semicolon.phoenixbookstore.exception.BookLogicException;
+import africa.semicolon.phoenixbookstore.exceptions.BookDoesNotExistException;
+import africa.semicolon.phoenixbookstore.exceptions.PhoenixBookStoreException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +17,14 @@ public class BookServiceImpl implements BookService{
     BookRepository bookRepository;
 
     @Override
-    public Book addToFavoriteBooks(BookDto bookDto) throws BookLogicException {
+    public Book addToFavoriteBooks(BookDto bookDto) throws PhoenixBookStoreException {
         if (bookDto == null){
             throw new IllegalArgumentException("Argument cannot be null");
         }
 
         Optional<Book> query = bookRepository.findByTitle(bookDto.getTitle());
         if (query.isPresent()){
-            throw new BookLogicException("employee email exists" +bookDto.getTitle());
+            throw new PhoenixBookStoreException("employee email exists" +bookDto.getTitle());
         }
 
 
