@@ -31,7 +31,7 @@ public class BookController {
 
 
     @PostMapping("")
-    public ResponseEntity<?> addEmployees(@RequestBody BookDto bookDto) {
+    public ResponseEntity<?> addBooks(@RequestBody BookDto bookDto) {
 
         try {
             Book savedBook = bookService.addToFavoriteBooks(bookDto);
