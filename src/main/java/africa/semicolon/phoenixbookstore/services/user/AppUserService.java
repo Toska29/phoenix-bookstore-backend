@@ -1,4 +1,4 @@
-package africa.semicolon.phoenixbookstore.service.user;
+package africa.semicolon.phoenixbookstore.services.user;
 
 import africa.semicolon.phoenixbookstore.data.dto.AppUserRequestDto;
 import africa.semicolon.phoenixbookstore.data.dto.AppUserResponseDto;
